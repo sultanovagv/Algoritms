@@ -1,16 +1,17 @@
 name: Test second test
 on: push
 jobs:
-  second-test-job:
-    runs-on: ubuntu-latest
+  deploy-to-test:
+    name: Deploy to ${{ inputs.env }}
+    runs-on: java-k8s
     steps:
-      - uses: actions/checkout@v3.3.0
-      - uses: actions/setup-java@v2
+      - name: Deploy to test
+        uses: aurelien-baudet/workflow-dispatch@v2
         with:
-          java-version: 15
-      - name: check tools versions
-        run:
-          java -version
-          docker version
+          workflow: first
+          repo: https://github.com/sultanovagv/Algoritms
+          wait-for-completion: true
+          wait-for-completion-timeout: 10m
+          wait-for-completion-interval: 30s
 
 
