@@ -8,7 +8,7 @@ jobs:
       - name: Deploy to test
         uses: aurelien-baudet/workflow-dispatch@v2
         with:
-          workflow: first
+          workflow: first-test
           repo: https://github.com/sultanovagv/Algoritms
           wait-for-completion: true
           wait-for-completion-timeout: 10m
