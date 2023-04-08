@@ -3,7 +3,7 @@ on: push
 jobs:
   deploy-to-test:
     name: Deploy to ${{ inputs.env }}
-    runs-on: java-k8s
+    runs-on: ubuntu-16.04
     steps:
       - name: Deploy to test
         uses: aurelien-baudet/workflow-dispatch@v2
