@@ -9,7 +9,7 @@ jobs:
         uses: aurelien-baudet/workflow-dispatch@v2
         with:
           workflow: ${{ inputs.workflow || 'first-test' }}
-          repo: https://github.com/sultanovagv/Algoritms/.github/workflows
+          repo: ${{ env.GITHUB_REPOSITORY }}
           token: ${{ secrets.TOKEN }}
           wait-for-completion: true
           wait-for-completion-timeout: 10m
