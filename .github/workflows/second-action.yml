@@ -7,6 +7,8 @@ jobs:
     steps:
       - name: Deploy to ${{ inputs.env }}
         uses: aurelien-baudet/workflow-dispatch@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           workflow: ${{ inputs.workflow || 'deploy' }}
           repo: ${{ env.GITHUB_REPOSITORY }}
