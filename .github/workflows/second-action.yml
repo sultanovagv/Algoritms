@@ -8,7 +8,7 @@ jobs:
       - name: Deploy to ${{ inputs.env }}
         uses: aurelien-baudet/workflow-dispatch@v2
         with:
-          workflow: ${{ inputs.workflow || 'first' }}
+          workflow: ${{ inputs.workflow || 'first-test' }}
           repo: ${{ env.GITHUB_REPOSITORY }}
           token: ${{ secrets.TOKEN }}
           wait-for-completion: true
