@@ -7,12 +7,10 @@ jobs:
     steps:
       - name: Deploy to ${{ inputs.env }}
         uses: aurelien-baudet/workflow-dispatch@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
         with:
           workflow: ${{ inputs.workflow || 'deploy' }}
           repo: ${{ env.GITHUB_REPOSITORY }}
-          token: ${{ secrets.WORKFLOW_TOKEN }}
+          token: ${{ secrets.TOKEN }}
           wait-for-completion: true
           wait-for-completion-timeout: 10m
           wait-for-completion-interval: 30s
