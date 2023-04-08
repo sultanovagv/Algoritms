@@ -2,7 +2,7 @@ name: Test second test
 on: push
 jobs:
   deploy-to-env:
-    name: Deploy to ${{ inputs.env }}
+    name: Deploy
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to ${{ inputs.env }}
@@ -14,4 +14,3 @@ jobs:
           wait-for-completion: true
           wait-for-completion-timeout: 10m
           wait-for-completion-interval: 30s
-          inputs: "{ \"env\": \"${{ inputs.env }}\", \"tag\": \"${{ inputs.tag }}\" }"
