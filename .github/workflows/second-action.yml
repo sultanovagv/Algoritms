@@ -3,7 +3,7 @@ on: push
 jobs:
   deploy-to-env:
     name: Deploy to ${{ inputs.env }}
-    runs-on: java-k8s
+    runs-on: ubuntu-latest
     steps:
       - name: Deploy to ${{ inputs.env }}
         uses: aurelien-baudet/workflow-dispatch@v2
