@@ -1,16 +1,18 @@
 name: Test second test
 on: push
 jobs:
-  deploy-to-test:
+  deploy-to-env:
     name: Deploy to ${{ inputs.env }}
-    runs-on: ubuntu-16.04
+    runs-on: java-k8s
     steps:
-      - name: Deploy to test
+      - name: Deploy to ${{ inputs.env }}
         uses: aurelien-baudet/workflow-dispatch@v2
         with:
-          workflow: first-test
-          repo: https://github.com/sultanovagv/Algoritms
+          workflow: ${{ inputs.workflow || 'deploy' }}
+          repo: ${{ env.GITHUB_REPOSITORY }}
+          token: ${{ secrets.WORKFLOW_TOKEN }}
           wait-for-completion: true
           wait-for-completion-timeout: 10m
           wait-for-completion-interval: 30s
+          inputs: "{ \"env\": \"${{ inputs.env }}\", \"tag\": \"${{ inputs.tag }}\" }"
 
